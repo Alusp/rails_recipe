@@ -1,0 +1,39 @@
+<% if notice.present? %>
+<p><%= notice %></p>
+<%end %>
+<h2 class="flex justify-center mt-5 text-4xl font-bold">Foods</h2>
+
+<div class="flex justify-center ml-[40%] my-10">
+  <%= link_to new_food_path do %>
+   <h2 class="border px-2 py-2"> Add item </h2>
+  <% end %>
+</div>
+  <div class="overflow-auto rounded-lg shadow mx-[10%]">
+  <table class="w-full">
+    <thead class="border-b">
+      <tr>
+        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Food</th>
+        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Measurement Unit</th>
+        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Quantity</th>
+        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Unit Price</th>
+        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Actions</th>
+        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Show</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+      <tr class="border-b">
+        <%= render food %>
+          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+          <%= button_to "Delete", food_path(food.id), method: :delete, class:"border py-2 px-4 font-bold"%>
+      </td>
+        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+        <div >
+          <%= link_to "Details", food, class: "border py-2 px-4 font-bold" %>
+          </div>
+        </td>
+      <% end %>
+      <tr>
+    </tbody>
+  </table>
+  </div>
