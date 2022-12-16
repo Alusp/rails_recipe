@@ -1,0 +1,13 @@
+<div class="flex flex-col md:flex-row md:transform md:scale-75 lg:scale-100 justify-center">
+  <div class="border rounded-lg p-10 mx-auto lg:mx-0 my-2 lg:my-6 bg-gray-100 font-medium z-10 shadow-lg ">
+    <div>
+      <%= link_to recipe_path(@recipe_food.recipe) do %>
+        Back
+      <% end %>
+    </div>
+    <h1 class="font-bold text-xl text-center my-5">Add ingredient</h1>
+
+    <%= render "form", recipe_food: @recipe_food %>
+  </div>
+</div>
+
