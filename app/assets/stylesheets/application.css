@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+input[data-disable-with="Create Food"] {
+  cursor: pointer;
+}
+
+input[data-disable-with="Create Recipe"] {
+  cursor: pointer;
+}
