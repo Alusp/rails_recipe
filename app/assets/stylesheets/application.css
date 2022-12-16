@@ -14,10 +14,10 @@
  *= require_self
  */
 
-input[data-disable-with="Create Food"] {
+ input[data-disable-with="Create Food"] {
   cursor: pointer;
-}
+ }
+ input[data-disable-with="Create Recipe"] {
+  cursor: pointer;
+ }
 
-input[data-disable-with="Create Recipe"] {
-  cursor: pointer;
-}
