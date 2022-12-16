@@ -6,6 +6,8 @@ ruby '3.1.2'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4'
 
+gem 'tailwindcss-rails', '~> 2.0', '>= 2.0.21'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
@@ -45,6 +47,9 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+gem 'bullet', '~> 7.0'
+gem 'cancancan', '~> 3.4'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -60,6 +65,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'letter_opener'
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
 
