@@ -4,8 +4,6 @@ class RecipesController < ApplicationController
 
   def public_recipes
     @public_recipes = Recipe.where(public: true).order('created_at DESC')
-
-    @shopping_lists = RecipeFood.where(recipe_id: params[:id]).includes(:food)
   end
 
   # GET /recipes or /recipes.json
