@@ -2,7 +2,6 @@
 
 Rails.application.routes.draw do
   get '/public_recipes', to: 'recipes#public_recipes'
-  get '/general_shopping_list/:id', to: 'recipes#public_recipes'
   
   get 'about/index'
   get '/general_shopping_list/:id', to: 'shopping_list#index', as: 'general_shopping_list'
@@ -20,7 +19,6 @@ Rails.application.routes.draw do
     resources :recipe_foods
     collection do 
       get 'public_recipes', to: 'recipes#public_recipes'
-      get '/general_shopping_list/:id', to: 'recipes#public_recipes'
     end
   end
   resources :users
