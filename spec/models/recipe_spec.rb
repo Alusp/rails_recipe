@@ -2,18 +2,12 @@ require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
   subject do
-    @user = User.create(name: 'Alusine', email: 'alujallo@mail.com', password: '1234567')
-    Recipe.create(name: 'Recipe', description: 'This is desc', public: true, preparation_time: '1 hours',
-                  cooking_time: '1 days', user: @user)
+    @user = User.create!(name: 'Tom',  email: "email@hmail.com", password: "password")
+    Recipe.create!(name: 'recipe 1', preparation_time: '5 hours', cooking_time: '20 min', description: 'ddajdhasjdhdjdhsadhadhjkahdkahd', user_id: @user.id)
   end
 
-  before(:each) { subject.save }
-
-  it 'should have description "This is desc"' do
-    expect(subject.description).to eql('This is desc')
-  end
-
-  it 'should have public of true' do
-    expect(subject.public).to eql(true)
+  it 'should be invalid without name' do
+    subject.name = 'recipe 1'
+    expect(subject).to be_valid
   end
 end
