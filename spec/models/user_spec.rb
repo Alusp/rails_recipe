@@ -6,8 +6,6 @@ RSpec.describe User, type: :model do
   end
   before { subject.save }
 
-   
-
   it 'should valid the name' do
     subject.name = 'alusine'
     expect(subject).to be_valid

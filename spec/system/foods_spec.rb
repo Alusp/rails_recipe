@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe 'Recipe', type: :system do
   user = User.create(name: 'Alusine', email: 'alujallo@gmail.com', password: '123456')
 
