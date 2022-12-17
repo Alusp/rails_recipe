@@ -1,0 +1,72 @@
+<% if notice.present? %>
+  <p><%= notice %></p>
+<%end %>
+<div class="p-5">
+  <div>
+  </div>
+  <h1 class="font-bold text-3xl text-center mb-8"><%= @recipe.name %></h1>
+  <div class="flex justify-around">
+    <div class="flex flex-col">
+      <h3 class="text-xl my-3">Preparation time: <%= @recipe.preparation_time %></h3>
+      <h3 class="text-xl my-3">Cooking time: <%= @recipe.cooking_time %></h3>
+      <p> <%= @recipe.description %></p>
+    </div>
+    
+      <% if @recipe.public %>
+      <div class="flex">
+        <div class="w-11 h-6 flex justify-end items-center border-1 rounded-full bg-blue-600 pr-[1.5px]">
+          <div class="w-5 h-5 rounded-full bg-white"></div>
+        </div>
+        <span class="ml-3 text-sm font-medium text-gray-400 dark:text-gray-500">Public</span>
+      </div>
+      <%else%>
+      <div class="flex">
+        <div class="w-11 h-6 flex items-center border-1 rounded-full bg-gray-500">
+          <div class="w-5 h-5 rounded-full bg-white"></div>
+        </div>
+        <span class="ml-3 text-sm font-medium text-gray-400 dark:text-gray-500">private</span>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex justify-around">
+    <% if @recipe.user == current_user %>
+      <%= link_to "Generate shoping list", general_shopping_list_path(@recipe.id), class: "border px-2 py-2 font-bold"%>
+      <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe), class: "border px-2 py-2 font-bold"%>
+    <% end %>
+  </div>
+    
+  <hr class="my-8 h-px bg-gray-200 border-0 dark:bg-gray-700">
+  <div class=" mt-5 overflow-auto rounded-lg shadow mx-[30%]">
+    <table class="w-full">
+      <thead class="border-b">
+          <tr>
+            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Food</th>
+            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Quantity</th>
+            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Value</th>
+            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+        <% @recipe_foods.each do |recipe_food| %>
+        <tr class="border-b">
+          <%= render recipe_food %>
+          <% if @recipe.user == current_user %>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <div >
+                  <%= button_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, class:"text-black font-bold py-2 px-4 border rounded" %>
+                </div>
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <div >
+                  <%= link_to "Edit", edit_recipe_recipe_food_path(@recipe, recipe_food), class: "text-black font-bold py-2 px-4 border rounded" %>
+                </div>
+              </td>
+          <% end %>
+        <% end %>
+        <tr>
+      </tbody>
+    </table>
+  </div>
+</div>
