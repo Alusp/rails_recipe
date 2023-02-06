@@ -36,7 +36,7 @@
 
 # 📖 Blog App <a name="about-project"></a>
 
-**Recipe App** will be a classic example of a recipe website. RecipeBook app makes finding recipes easy. creation of recipe include entering the name, description. ability to add ingredient and generate shopping list
+**A Recipe App** will be a classic example of a recipe website. The app makes finding recipes easy. creation of the recipe includes entering the name, and description. ability to add an ingredient and generate a shopping list.
 
 ## 🛠 Built With <a name="Ruby on Rails"></a>
 
